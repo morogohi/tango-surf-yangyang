@@ -89,9 +89,8 @@
   .sec-head p{color:var(--muted);max-width:620px;margin:0 auto}
 
   /* INTRO cards */
-  .feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-  @media(max-width:820px){.feature-grid{grid-template-columns:1fr}}
-  .feature{background:#fff;border-radius:var(--radius);padding:30px 26px;box-shadow:0 8px 26px rgba(20,40,63,.07);border:1px solid rgba(20,40,63,.06);transition:transform .2s,box-shadow .2s}
+  .feature-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:22px}
+  .feature{flex:1 1 300px;max-width:340px;background:#fff;border-radius:var(--radius);padding:30px 26px;box-shadow:0 8px 26px rgba(20,40,63,.07);border:1px solid rgba(20,40,63,.06);transition:transform .2s,box-shadow .2s}
   .feature:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
   .feature .ic{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;font-size:1.5rem;background:linear-gradient(135deg,var(--coral),var(--gold));margin-bottom:16px}
   .feature h3{font-size:1.2rem;margin-bottom:8px;color:var(--navy)}
@@ -208,12 +207,12 @@
       <img src="./images/poster.jpg" alt="파도를 가르고, 탱고를 품다 — 양양 서핑·탱고 워크숍 포스터"
            onerror="this.closest('.poster').classList.add('noimg')" />
       <figcaption class="poster-fallback">
-        <span class="eyebrow">2026 · 양양 여름 워크숍</span>
+        <span class="eyebrow">푸른 파도, 뜨거운 탱고, 잊지 못할 여름 이야기</span>
         <h1 class="serif">파도를 가르고,<br/><span class="accent">탱고</span>를 품다</h1>
-        <p class="lead">푸른 양양 바다에서의 서핑, 노을빛 마당의 조개구이, 그리고 폴딩도어 너머 한여름 밤의 미롱가.</p>
+        <p class="lead">서핑과 탱고, 낭만이 있는 1박 2일 펜션 파티 — <em>Surf · Tango · BBQ · Milonga</em></p>
         <div class="hero-meta">
-          <div class="chip">🗓️ <b>2026.08.22(토) ~ 08.23(일)</b></div>
-          <div class="chip">📍 <b>양양 단독 펜션</b></div>
+          <div class="chip">🗓️ <b>2026. 8. 22(토) ~ 8. 23(일)</b></div>
+          <div class="chip">📍 <b>양양 해변 &amp; 프라이빗 펜션</b></div>
         </div>
       </figcaption>
     </figure>
@@ -229,25 +228,35 @@
 <section id="about">
   <div class="wrap">
     <div class="sec-head">
-      <div class="kicker">The Retreat</div>
+      <div class="kicker">Surf · Tango · BBQ · Milonga</div>
       <h2 class="serif">바다와 음악이 만나는 1박 2일</h2>
-      <p>활기찬 낮의 서핑과 낭만적인 밤의 탱고. 자연 속 단독 펜션에서 함께 먹고, 춤추고, 쉬어가는 특별한 주말입니다.</p>
+      <p>활기찬 낮의 서핑과 낭만적인 밤의 탱고. 아름다운 펜션에서 함께 먹고, 춤추고, 쉬어가는 특별한 주말입니다.</p>
     </div>
     <div class="feature-grid">
       <div class="feature">
         <div class="ic">🏄</div>
-        <h3>오전 서핑 체험</h3>
-        <p>죽도·인구 해변에서 강습과 자유 서핑. 초보도 환영, 푸른 바다에서 시원하게 하루를 엽니다.</p>
+        <h3>서핑 체험</h3>
+        <p>푸른 바다에서 시원하게 즐기는 서핑! 초보도 환영, 강습과 자유 서핑으로 하루를 엽니다.</p>
       </div>
       <div class="feature">
-        <div class="ic">🔥</div>
-        <h3>노을빛 BBQ 파티</h3>
-        <p>탁 트인 마당에서 노을을 바라보며 즐기는 신선한 조개구이와 바비큐. 서핑 후엔 더욱 꿀맛.</p>
+        <div class="ic">🐚</div>
+        <h3>조개구이 &amp; BBQ</h3>
+        <p>노을 지는 마당에서 신선한 조개와 바비큐 파티! 서핑 후엔 더욱 꿀맛입니다.</p>
       </div>
       <div class="feature">
         <div class="ic">💃</div>
-        <h3>한여름 밤의 미롱가</h3>
-        <p>폴딩도어가 매력적인 1층 넓은 거실에서 와인과 함께하는 탱고 음악, 그리고 댄스 타임.</p>
+        <h3>탱고 미롱가</h3>
+        <p>멋진 거실에서 낭만적인 탱고 댄스 타임! 폴딩도어 너머 한여름 밤의 미롱가.</p>
+      </div>
+      <div class="feature">
+        <div class="ic">☕</div>
+        <h3>자유로운 휴식</h3>
+        <p>따뜻한 차와 대화, 아름다운 펜션에서 누리는 여유로운 시간.</p>
+      </div>
+      <div class="feature">
+        <div class="ic">📷</div>
+        <h3>추억 남기기</h3>
+        <p>아름다운 풍경 속에서 특별한 추억을 남겨보세요!</p>
       </div>
     </div>
   </div>
@@ -396,9 +405,10 @@
 <footer>
   <div class="wrap">
     <div class="brand"><span class="dot"></span> 양양 탱고 · 서핑 워크숍</div>
-    <p>2026.08.22(토) ~ 08.23(일) · 양양 단독 펜션</p>
+    <p>2026. 8. 22(토) ~ 8. 23(일) · 양양 해변 &amp; 프라이빗 펜션</p>
+    <p style="color:var(--gold);font-family:var(--serif);font-size:1.05rem;margin-top:10px">❧ 지금 바로 신청하고, 특별한 추억을 함께 만들어가요! ❧</p>
     <div class="hr"></div>
-    <p style="font-size:.8rem">파도를 가르고, 탱고를 품다 — 함께 만드는 한여름의 추억 🌊💃</p>
+    <p style="font-size:.8rem">파도를 가르고, 탱고를 품다 — Surf · Tango · BBQ · Milonga 🌊💃</p>
   </div>
 </footer>
 
@@ -410,16 +420,17 @@ const schedule = {
   1:[
     ["10:00","양양 해변 서핑 체험","죽도·인구 해변에서 강습 및 자유 서핑. 푸른 바다에서 시원하게 첫 일정 시작."],
     ["12:30","점심 식사 & 펜션 이동","해변 근처 맛집에서 점심 후 펜션으로 이동."],
-    ["14:00","집결 & 숙소 배정","도면 기준으로 방·거실에 짐을 풀고 서핑 후 휴식."],
+    ["14:00","펜션 집결 & 숙소 배정","도면 기준으로 방·거실에 짐을 풀고 서핑 후 휴식."],
     ["15:00","자유 시간 (Tango Talk)","따뜻한 차와 함께 산책하며 자유롭게 대화하는 시간."],
     ["17:30","노을빛 조개구이 & BBQ","마당에서 노을을 바라보며 신선한 조개와 고기 파티."],
     ["20:00","한여름 밤의 미롱가","1층 폴딩도어 거실에서 탱고 음악과 와인, 댄스 타임."],
     ["23:00","자유 대화 & 휴식","밤이 깊도록 이어지는 편안한 대화."]
   ],
   2:[
-    ["09:00","아침 식사 & 커피","야외 테라스 테이블에서 간단한 아침과 모닝커피."],
-    ["10:30","정리정돈 & 체크아웃 준비","함께 공간을 정리합니다."],
-    ["11:30","단체 기념사진 & 해산","펜션 전경을 배경으로 단체 사진 촬영 후 해산."]
+    ["09:00","아침 식사 & 커피 타임","야외 테라스 테이블에서 간단한 아침과 모닝커피."],
+    ["10:30","정리정돈 & 체크아웃","함께 공간을 정리하고 체크아웃을 준비합니다."],
+    ["11:30","단체 기념사진 촬영","펜션 전경을 배경으로 다 함께 기념사진을 남깁니다."],
+    ["13:00","아쉬운 작별, 해산","즐거웠던 1박 2일을 마무리하고 해산합니다."]
   ]
 };
 function renderTimeline(day){
