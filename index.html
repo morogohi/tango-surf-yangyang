@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>파도를 가르고, 탱고를 품다 · 양양 워크숍</title>
+<meta name="description" content="2026.08.22~23 양양 펜션에서 함께하는 서핑 & 탱고 1박 2일 워크숍. 참석 신청과 아이디어 제안을 받습니다." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --navy:#0e1b2c;
+    --navy-2:#13283f;
+    --coral:#ff7a59;
+    --gold:#e8b75b;
+    --sand:#f6efe6;
+    --ink:#1c2733;
+    --muted:#7d8a99;
+    --line:rgba(255,255,255,.12);
+    --radius:18px;
+    --shadow:0 18px 50px rgba(8,18,30,.18);
+    --serif:'Gowun Batang',serif;
+    --sans:'Noto Sans KR',system-ui,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);color:var(--ink);background:var(--sand);line-height:1.65;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+  .wrap{width:min(1120px,92vw);margin:0 auto}
+  .serif{font-family:var(--serif)}
+  .accent{color:var(--coral)}
+
+  /* NAV */
+  header.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(10px);background:rgba(14,27,44,.82);border-bottom:1px solid var(--line)}
+  .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .brand{display:flex;align-items:center;gap:10px;color:#fff;font-weight:700;letter-spacing:.5px}
+  .brand .dot{width:10px;height:10px;border-radius:50%;background:var(--coral);box-shadow:0 0 0 4px rgba(255,122,89,.25)}
+  .nav nav{display:flex;gap:26px}
+  .nav nav a{color:#cdd7e2;font-size:.92rem;font-weight:500;transition:color .2s}
+  .nav nav a:hover{color:#fff}
+  .nav .cta{background:var(--coral);color:#fff;padding:9px 18px;border-radius:999px;font-weight:700;font-size:.9rem}
+  .menu-btn{display:none;background:none;border:0;color:#fff;font-size:1.5rem;cursor:pointer}
+  @media(max-width:820px){.nav nav{display:none}.menu-btn{display:block}}
+
+  /* HERO */
+  .hero{position:relative;min-height:92vh;display:flex;align-items:center;color:#fff;overflow:hidden}
+  .hero-bg{position:absolute;inset:0;background:
+     linear-gradient(180deg,rgba(14,27,44,.55),rgba(14,27,44,.85)),
+     radial-gradient(1200px 600px at 70% 10%,rgba(232,183,91,.28),transparent 60%),
+     linear-gradient(120deg,#0e1b2c,#1a3450 60%,#27506f);
+  }
+  .hero-img{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.45}
+  .hero .wrap{position:relative;z-index:2;padding:90px 0}
+  .hero-inner{padding:54px 0;text-align:center;display:flex;flex-direction:column;align-items:center}
+  .poster{margin:0 auto 30px;max-width:560px;width:100%}
+  .poster img{width:100%;height:auto;border-radius:16px;box-shadow:0 30px 90px rgba(0,0,0,.55);border:1px solid rgba(255,255,255,.12)}
+  .poster .poster-fallback{display:none}
+  .poster.noimg img{display:none}
+  .poster.noimg .poster-fallback{display:block;padding:50px 18px}
+  .poster .hero-meta{justify-content:center}
+  .hero-inner .hero-actions{justify-content:center}
+  .hero-inner .countdown{justify-content:center}
+  .eyebrow{display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(255,255,255,.3);padding:7px 16px;border-radius:999px;font-size:.85rem;letter-spacing:2px;text-transform:uppercase;backdrop-filter:blur(4px)}
+  .hero h1{font-family:var(--serif);font-weight:700;font-size:clamp(2.4rem,6vw,4.4rem);line-height:1.12;margin:22px 0 14px}
+  .hero h1 .accent{color:var(--gold)}
+  .hero p.lead{font-size:clamp(1rem,2.2vw,1.25rem);color:#dde6ef;max-width:600px}
+  .hero-meta{display:flex;flex-wrap:wrap;gap:14px;margin:30px 0 34px}
+  .chip{display:flex;align-items:center;gap:9px;background:rgba(255,255,255,.08);border:1px solid var(--line);padding:11px 18px;border-radius:14px;font-size:.95rem}
+  .chip b{font-weight:700}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:14px}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:999px;font-weight:700;font-size:1rem;cursor:pointer;border:0;transition:transform .15s,box-shadow .2s}
+  .btn:hover{transform:translateY(-2px)}
+  .btn-primary{background:var(--coral);color:#fff;box-shadow:0 12px 30px rgba(255,122,89,.4)}
+  .btn-ghost{background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.35)}
+
+  /* COUNTDOWN */
+  .countdown{display:flex;gap:14px;margin-top:36px}
+  .cd-box{background:rgba(255,255,255,.07);border:1px solid var(--line);border-radius:14px;padding:14px 18px;text-align:center;min-width:78px}
+  .cd-box .num{font-family:var(--serif);font-size:2rem;font-weight:700;color:var(--gold);line-height:1}
+  .cd-box .lbl{font-size:.72rem;letter-spacing:2px;color:#aebbc9;text-transform:uppercase;margin-top:6px}
+
+  /* SECTION base */
+  section{padding:84px 0}
+  .sec-head{text-align:center;margin-bottom:54px}
+  .sec-head .kicker{color:var(--coral);font-weight:700;letter-spacing:3px;text-transform:uppercase;font-size:.82rem}
+  .sec-head h2{font-family:var(--serif);font-size:clamp(1.8rem,4vw,2.7rem);margin:12px 0 10px;color:var(--navy)}
+  .sec-head p{color:var(--muted);max-width:620px;margin:0 auto}
+
+  /* INTRO cards */
+  .feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  @media(max-width:820px){.feature-grid{grid-template-columns:1fr}}
+  .feature{background:#fff;border-radius:var(--radius);padding:30px 26px;box-shadow:0 8px 26px rgba(20,40,63,.07);border:1px solid rgba(20,40,63,.06);transition:transform .2s,box-shadow .2s}
+  .feature:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+  .feature .ic{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;font-size:1.5rem;background:linear-gradient(135deg,var(--coral),var(--gold));margin-bottom:16px}
+  .feature h3{font-size:1.2rem;margin-bottom:8px;color:var(--navy)}
+  .feature p{color:var(--muted);font-size:.95rem}
+
+  /* SCHEDULE */
+  .sched{background:var(--navy);color:#fff}
+  .sched .sec-head h2{color:#fff}
+  .sched .sec-head p{color:#aebbc9}
+  .day-tabs{display:flex;justify-content:center;gap:12px;margin-bottom:40px}
+  .day-tab{background:rgba(255,255,255,.06);border:1px solid var(--line);color:#cdd7e2;padding:12px 26px;border-radius:999px;font-weight:700;cursor:pointer;transition:.2s;font-family:var(--serif)}
+  .day-tab.active{background:var(--coral);color:#fff;border-color:var(--coral)}
+  .timeline{max-width:760px;margin:0 auto;position:relative}
+  .timeline::before{content:"";position:absolute;left:118px;top:8px;bottom:8px;width:2px;background:linear-gradient(var(--coral),var(--gold))}
+  @media(max-width:600px){.timeline::before{left:78px}}
+  .tl-item{display:grid;grid-template-columns:104px 1fr;gap:26px;position:relative;padding:14px 0}
+  @media(max-width:600px){.tl-item{grid-template-columns:64px 1fr;gap:18px}}
+  .tl-time{text-align:right;font-family:var(--serif);font-weight:700;color:var(--gold);padding-top:2px;font-size:.95rem}
+  .tl-dot{position:absolute;left:111px;top:20px;width:16px;height:16px;border-radius:50%;background:var(--coral);border:3px solid var(--navy);box-shadow:0 0 0 4px rgba(255,122,89,.25)}
+  @media(max-width:600px){.tl-dot{left:71px}}
+  .tl-body{background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:14px;padding:16px 20px}
+  .tl-body h4{font-size:1.08rem;margin-bottom:4px}
+  .tl-body p{color:#aebbc9;font-size:.92rem}
+  .tl-day{display:none}
+  .tl-day.active{display:block;animation:fade .4s ease}
+  @keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+  /* GALLERY */
+  .gallery{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:200px;gap:14px}
+  @media(max-width:820px){.gallery{grid-template-columns:repeat(2,1fr)}}
+  .g-item{position:relative;border-radius:14px;overflow:hidden;background-size:cover;background-position:center;background-color:#1a3450;box-shadow:var(--shadow)}
+  .g-item.big{grid-column:span 2;grid-row:span 2}
+  .g-item .cap{position:absolute;left:0;right:0;bottom:0;padding:14px 16px;color:#fff;font-weight:600;font-size:.9rem;background:linear-gradient(transparent,rgba(8,18,30,.8))}
+  .g-item .ph{position:absolute;inset:0;display:grid;place-items:center;color:#7e93aa;font-size:.85rem;text-align:center;padding:10px}
+
+  /* FORMS */
+  .forms{background:linear-gradient(180deg,var(--sand),#efe6d8)}
+  .form-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:start}
+  @media(max-width:900px){.form-grid{grid-template-columns:1fr}}
+  .card{background:#fff;border-radius:var(--radius);padding:34px;box-shadow:var(--shadow);border:1px solid rgba(20,40,63,.06)}
+  .card h3{font-family:var(--serif);font-size:1.5rem;color:var(--navy);margin-bottom:6px}
+  .card .sub{color:var(--muted);font-size:.92rem;margin-bottom:22px}
+  .field{margin-bottom:16px}
+  .field label{display:block;font-weight:600;font-size:.9rem;margin-bottom:7px;color:var(--ink)}
+  .field label .req{color:var(--coral)}
+  .field input,.field select,.field textarea{width:100%;padding:12px 14px;border:1.5px solid #dfe5ec;border-radius:11px;font-family:inherit;font-size:.95rem;background:#fbfcfd;transition:border .2s,box-shadow .2s}
+  .field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--coral);box-shadow:0 0 0 3px rgba(255,122,89,.15)}
+  .field textarea{resize:vertical;min-height:88px}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media(max-width:520px){.row2{grid-template-columns:1fr}}
+  .pills{display:flex;flex-wrap:wrap;gap:10px}
+  .pill{position:relative;cursor:pointer}
+  .pill input{position:absolute;opacity:0}
+  .pill span{display:inline-block;padding:9px 16px;border:1.5px solid #dfe5ec;border-radius:999px;font-size:.88rem;transition:.18s;background:#fbfcfd}
+  .pill input:checked+span{background:var(--navy);color:#fff;border-color:var(--navy)}
+  .btn-full{width:100%;justify-content:center;margin-top:6px}
+  .form-note{font-size:.8rem;color:var(--muted);margin-top:12px;text-align:center}
+
+  /* lists */
+  .list-card{background:#fff;border-radius:var(--radius);padding:26px;box-shadow:var(--shadow);border:1px solid rgba(20,40,63,.06)}
+  .list-card h3{font-family:var(--serif);font-size:1.3rem;color:var(--navy);margin-bottom:4px;display:flex;align-items:center;justify-content:space-between}
+  .badge{background:var(--coral);color:#fff;font-size:.78rem;padding:3px 11px;border-radius:999px;font-weight:700}
+  .attendees{margin-top:16px;display:flex;flex-direction:column;gap:10px;max-height:330px;overflow:auto}
+  .att{display:flex;align-items:center;gap:12px;padding:10px 12px;border:1px solid #eef1f5;border-radius:12px}
+  .att .av{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;font-weight:700;color:#fff;background:linear-gradient(135deg,var(--coral),var(--gold));flex-shrink:0}
+  .att .meta{flex:1;min-width:0}
+  .att .meta b{font-size:.95rem}
+  .att .meta small{display:block;color:var(--muted);font-size:.8rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .att .tags{display:flex;gap:5px;flex-wrap:wrap}
+  .att .tag{font-size:.7rem;background:#eef2f7;color:#5b6b7c;padding:2px 8px;border-radius:6px}
+  .empty{color:var(--muted);font-size:.9rem;text-align:center;padding:24px 0}
+  .tools{display:flex;gap:8px;margin-top:14px}
+  .btn-sm{flex:1;padding:9px;border-radius:10px;border:1.5px solid #dfe5ec;background:#fbfcfd;font-weight:600;font-size:.82rem;cursor:pointer;color:var(--ink)}
+  .btn-sm:hover{border-color:var(--coral);color:var(--coral)}
+  .prop{padding:12px 14px;border:1px solid #eef1f5;border-radius:12px;margin-top:10px}
+  .prop .ph{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px}
+  .prop .ph b{font-size:.92rem}
+  .prop .ph .like{cursor:pointer;border:0;background:#fff0eb;color:var(--coral);font-weight:700;border-radius:999px;padding:3px 11px;font-size:.78rem}
+  .prop p{font-size:.9rem;color:#4a5a6b}
+
+  /* toast */
+  .toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(120px);background:var(--navy);color:#fff;padding:14px 24px;border-radius:999px;box-shadow:var(--shadow);font-weight:600;z-index:99;transition:transform .35s;display:flex;gap:10px;align-items:center}
+  .toast.show{transform:translateX(-50%) translateY(0)}
+
+  /* footer */
+  footer{background:var(--navy);color:#aebbc9;padding:50px 0 36px;text-align:center}
+  footer .brand{justify-content:center;margin-bottom:14px}
+  footer p{font-size:.88rem}
+  footer .hr{height:1px;background:var(--line);margin:24px auto;width:min(680px,80vw)}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="wrap">
+    <div class="brand"><span class="dot"></span> 양양 탱고 · 서핑</div>
+    <nav id="navlinks">
+      <a href="#about">소개</a>
+      <a href="#schedule">일정</a>
+      <a href="#gallery">공간</a>
+      <a href="#proposals">제안</a>
+      <a href="#register" class="cta">참석 신청</a>
+    </nav>
+    <button class="menu-btn" onclick="document.getElementById('register').scrollIntoView()">☰</button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="wrap hero-inner">
+    <figure class="poster">
+      <img src="./images/poster.jpg" alt="파도를 가르고, 탱고를 품다 — 양양 서핑·탱고 워크숍 포스터"
+           onerror="this.closest('.poster').classList.add('noimg')" />
+      <figcaption class="poster-fallback">
+        <span class="eyebrow">2026 · 양양 여름 워크숍</span>
+        <h1 class="serif">파도를 가르고,<br/><span class="accent">탱고</span>를 품다</h1>
+        <p class="lead">푸른 양양 바다에서의 서핑, 노을빛 마당의 조개구이, 그리고 폴딩도어 너머 한여름 밤의 미롱가.</p>
+        <div class="hero-meta">
+          <div class="chip">🗓️ <b>2026.08.22(토) ~ 08.23(일)</b></div>
+          <div class="chip">📍 <b>양양 단독 펜션</b></div>
+        </div>
+      </figcaption>
+    </figure>
+    <div class="hero-actions">
+      <a href="#register" class="btn btn-primary">참석 신청하기 →</a>
+      <a href="#schedule" class="btn btn-ghost">전체 일정 보기</a>
+    </div>
+    <div class="countdown" id="countdown" aria-label="남은 시간"></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">The Retreat</div>
+      <h2 class="serif">바다와 음악이 만나는 1박 2일</h2>
+      <p>활기찬 낮의 서핑과 낭만적인 밤의 탱고. 자연 속 단독 펜션에서 함께 먹고, 춤추고, 쉬어가는 특별한 주말입니다.</p>
+    </div>
+    <div class="feature-grid">
+      <div class="feature">
+        <div class="ic">🏄</div>
+        <h3>오전 서핑 체험</h3>
+        <p>죽도·인구 해변에서 강습과 자유 서핑. 초보도 환영, 푸른 바다에서 시원하게 하루를 엽니다.</p>
+      </div>
+      <div class="feature">
+        <div class="ic">🔥</div>
+        <h3>노을빛 BBQ 파티</h3>
+        <p>탁 트인 마당에서 노을을 바라보며 즐기는 신선한 조개구이와 바비큐. 서핑 후엔 더욱 꿀맛.</p>
+      </div>
+      <div class="feature">
+        <div class="ic">💃</div>
+        <h3>한여름 밤의 미롱가</h3>
+        <p>폴딩도어가 매력적인 1층 넓은 거실에서 와인과 함께하는 탱고 음악, 그리고 댄스 타임.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCHEDULE -->
+<section id="schedule" class="sched">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">Programme</div>
+      <h2 class="serif">상세 일정표</h2>
+      <p>날짜를 선택해 시간별 프로그램을 확인하세요.</p>
+    </div>
+    <div class="day-tabs">
+      <button class="day-tab active" data-day="1">1일차 · 8.22 (토)</button>
+      <button class="day-tab" data-day="2">2일차 · 8.23 (일)</button>
+    </div>
+
+    <div class="tl-day active" data-day="1">
+      <div class="timeline" id="tl1"></div>
+    </div>
+    <div class="tl-day" data-day="2">
+      <div class="timeline" id="tl2"></div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">The Space</div>
+      <h2 class="serif">우리가 머물 공간</h2>
+      <p>탁 트인 마당, 폴딩도어 거실, 산과 바다가 보이는 테라스. 사진을 <code>images/</code> 폴더에 넣으면 자동으로 표시됩니다.</p>
+    </div>
+    <div class="gallery" id="gallery"></div>
+  </div>
+</section>
+
+<!-- REGISTER + PROPOSALS -->
+<section id="register" class="forms">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">Join Us</div>
+      <h2 class="serif">참석 신청 &amp; 아이디어 제안</h2>
+      <p>함께할 분들을 기다립니다. 신청과 제안 내용은 이 브라우저에 저장되며, 주최자는 CSV로 내려받을 수 있어요.</p>
+    </div>
+
+    <div class="form-grid">
+      <!-- registration -->
+      <div class="card">
+        <h3>참석 신청</h3>
+        <div class="sub">아래 정보를 입력해 주세요. <span class="accent">*</span> 필수 항목</div>
+        <form id="regForm">
+          <div class="row2">
+            <div class="field">
+              <label>이름 <span class="req">*</span></label>
+              <input name="name" required placeholder="홍길동" />
+            </div>
+            <div class="field">
+              <label>연락처 <span class="req">*</span></label>
+              <input name="contact" required placeholder="010-0000-0000 / 카톡ID" />
+            </div>
+          </div>
+
+          <div class="field">
+            <label>참석 일정 <span class="req">*</span></label>
+            <div class="pills">
+              <label class="pill"><input type="radio" name="attend" value="1박2일 전체" checked /><span>1박 2일 전체</span></label>
+              <label class="pill"><input type="radio" name="attend" value="1일차만" /><span>1일차만</span></label>
+              <label class="pill"><input type="radio" name="attend" value="2일차만" /><span>2일차만</span></label>
+            </div>
+          </div>
+
+          <div class="row2">
+            <div class="field">
+              <label>서핑 참여</label>
+              <select name="surf">
+                <option>참여 (강습 필요)</option>
+                <option>참여 (경험 있음)</option>
+                <option>미참여 / 구경만</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>탱고 경험</label>
+              <select name="tango">
+                <option>입문 / 처음</option>
+                <option>초급</option>
+                <option>중급 이상</option>
+                <option>댄스보다 음악·분위기</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label>식사 / 알레르기 / 요청사항</label>
+            <input name="diet" placeholder="예) 해산물 알레르기, 채식 등" />
+          </div>
+
+          <div class="field">
+            <label>하고 싶은 말 (선택)</label>
+            <textarea name="message" placeholder="기대되는 점이나 함께 오는 동행 등을 적어주세요."></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-full">신청 완료하기 🎉</button>
+          <p class="form-note">제출 시 정보가 브라우저(localStorage)에 저장됩니다.</p>
+        </form>
+      </div>
+
+      <!-- attendee list -->
+      <div class="list-card">
+        <h3>참석자 명단 <span class="badge" id="regCount">0명</span></h3>
+        <div class="attendees" id="attList"><div class="empty">아직 신청자가 없습니다. 첫 번째 주인공이 되어보세요!</div></div>
+        <div class="tools">
+          <button class="btn-sm" onclick="exportCSV()">⬇️ CSV 내려받기</button>
+          <button class="btn-sm" onclick="clearReg()">🗑️ 전체 초기화</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- proposals -->
+    <div class="form-grid" id="proposals" style="margin-top:30px">
+      <div class="card">
+        <h3>프로그램 제안</h3>
+        <div class="sub">함께 하고 싶은 활동이나 아이디어를 자유롭게 제안해 주세요.</div>
+        <form id="propForm">
+          <div class="field">
+            <label>닉네임 <span class="req">*</span></label>
+            <input name="who" required placeholder="제안자 이름" />
+          </div>
+          <div class="field">
+            <label>제안 내용 <span class="req">*</span></label>
+            <textarea name="idea" required placeholder="예) 둘째 날 오전에 해변 요가 어때요? / 탱고 입문 미니 클래스 추가 등"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-full">제안 등록 💡</button>
+        </form>
+      </div>
+      <div class="list-card">
+        <h3>제안 게시판 <span class="badge" id="propCount">0건</span></h3>
+        <div id="propList"><div class="empty">첫 아이디어를 남겨주세요!</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="brand"><span class="dot"></span> 양양 탱고 · 서핑 워크숍</div>
+    <p>2026.08.22(토) ~ 08.23(일) · 양양 단독 펜션</p>
+    <div class="hr"></div>
+    <p style="font-size:.8rem">파도를 가르고, 탱고를 품다 — 함께 만드는 한여름의 추억 🌊💃</p>
+  </div>
+</footer>
+
+<div class="toast" id="toast">✓ 저장되었습니다</div>
+
+<script>
+/* ---------- 일정 데이터 ---------- */
+const schedule = {
+  1:[
+    ["10:00","양양 해변 서핑 체험","죽도·인구 해변에서 강습 및 자유 서핑. 푸른 바다에서 시원하게 첫 일정 시작."],
+    ["12:30","점심 식사 & 펜션 이동","해변 근처 맛집에서 점심 후 펜션으로 이동."],
+    ["14:00","집결 & 숙소 배정","도면 기준으로 방·거실에 짐을 풀고 서핑 후 휴식."],
+    ["15:00","자유 시간 (Tango Talk)","따뜻한 차와 함께 산책하며 자유롭게 대화하는 시간."],
+    ["17:30","노을빛 조개구이 & BBQ","마당에서 노을을 바라보며 신선한 조개와 고기 파티."],
+    ["20:00","한여름 밤의 미롱가","1층 폴딩도어 거실에서 탱고 음악과 와인, 댄스 타임."],
+    ["23:00","자유 대화 & 휴식","밤이 깊도록 이어지는 편안한 대화."]
+  ],
+  2:[
+    ["09:00","아침 식사 & 커피","야외 테라스 테이블에서 간단한 아침과 모닝커피."],
+    ["10:30","정리정돈 & 체크아웃 준비","함께 공간을 정리합니다."],
+    ["11:30","단체 기념사진 & 해산","펜션 전경을 배경으로 단체 사진 촬영 후 해산."]
+  ]
+};
+function renderTimeline(day){
+  const el=document.getElementById('tl'+day);
+  el.innerHTML=schedule[day].map(([t,h,p])=>`
+    <div class="tl-item">
+      <div class="tl-time">${t}</div>
+      <div class="tl-dot"></div>
+      <div class="tl-body"><h4>${h}</h4><p>${p}</p></div>
+    </div>`).join('');
+}
+renderTimeline(1);renderTimeline(2);
+
+document.querySelectorAll('.day-tab').forEach(tab=>{
+  tab.onclick=()=>{
+    document.querySelectorAll('.day-tab').forEach(t=>t.classList.remove('active'));
+    document.querySelectorAll('.tl-day').forEach(d=>d.classList.remove('active'));
+    tab.classList.add('active');
+    document.querySelector('.tl-day[data-day="'+tab.dataset.day+'"]').classList.add('active');
+  };
+});
+
+/* ---------- 갤러리 ---------- */
+const gallery=[
+  {file:'cover.jpg',cap:'펜션 전경',big:true},
+  {file:'living.jpg',cap:'폴딩도어 거실 (미롱가)'},
+  {file:'yard.jpg',cap:'노을빛 마당 (BBQ)'},
+  {file:'terrace.jpg',cap:'야외 테라스 테이블'},
+  {file:'floorplan.jpg',cap:'펜션 도면'}
+];
+document.getElementById('gallery').innerHTML=gallery.map(g=>`
+  <div class="g-item ${g.big?'big':''}" style="background-image:url('./images/${g.file}')">
+    <div class="ph">📷 images/${g.file}</div>
+    <div class="cap">${g.cap}</div>
+  </div>`).join('');
+// 이미지가 실제로 로드되면 플레이스홀더 텍스트 숨김
+gallery.forEach(g=>{
+  const img=new Image();
+  img.onload=()=>{document.querySelectorAll('.g-item').forEach(it=>{if(it.style.backgroundImage.includes(g.file)){const ph=it.querySelector('.ph');if(ph)ph.style.display='none';}});};
+  img.src='./images/'+g.file;
+});
+
+/* ---------- 카운트다운 ---------- */
+const target=new Date('2026-08-22T10:00:00+09:00').getTime();
+function tick(){
+  const now=Date.now(),d=target-now;
+  const cd=document.getElementById('countdown');
+  if(d<=0){cd.innerHTML='<div class="cd-box"><div class="num">🎉</div><div class="lbl">진행중</div></div>';return;}
+  const days=Math.floor(d/864e5),h=Math.floor(d%864e5/36e5),m=Math.floor(d%36e5/6e4),s=Math.floor(d%6e4/1e3);
+  cd.innerHTML=[[days,'DAYS'],[h,'HOURS'],[m,'MIN'],[s,'SEC']].map(([n,l])=>
+    `<div class="cd-box"><div class="num">${String(n).padStart(2,'0')}</div><div class="lbl">${l}</div></div>`).join('');
+}
+tick();setInterval(tick,1000);
+
+/* ---------- Google Apps Script 연동 ----------
+   ↓↓↓ 배포 후 받은 웹앱 URL을 아래 따옴표 안에 붙여넣으세요 ↓↓↓ */
+const SCRIPT_URL = "__SCRIPT_URL__";
+function postToSheet(payload){
+  if(!SCRIPT_URL || SCRIPT_URL.indexOf("http")!==0) return; // URL 미설정 시 로컬 저장만
+  fetch(SCRIPT_URL,{
+    method:"POST",
+    mode:"no-cors",
+    headers:{"Content-Type":"text/plain;charset=utf-8"},
+    body:JSON.stringify(payload)
+  }).catch(()=>{});
+}
+
+/* ---------- 저장 / 토스트 ---------- */
+const RK='tango_reg',PK='tango_prop';
+const get=k=>JSON.parse(localStorage.getItem(k)||'[]');
+const set=(k,v)=>localStorage.setItem(k,JSON.stringify(v));
+let toastT;
+function toast(msg){const t=document.getElementById('toast');t.textContent='✓ '+msg;t.classList.add('show');clearTimeout(toastT);toastT=setTimeout(()=>t.classList.remove('show'),2200);}
+
+/* ---------- 참석자 ---------- */
+function renderReg(){
+  const list=get(RK),el=document.getElementById('attList');
+  document.getElementById('regCount').textContent=list.length+'명';
+  if(!list.length){el.innerHTML='<div class="empty">아직 신청자가 없습니다. 첫 번째 주인공이 되어보세요!</div>';return;}
+  el.innerHTML=list.map(r=>`
+    <div class="att">
+      <div class="av">${(r.name||'?').slice(0,1)}</div>
+      <div class="meta">
+        <b>${esc(r.name)}</b>
+        <small>${esc(r.contact)}${r.message?' · '+esc(r.message):''}</small>
+        <div class="tags">
+          <span class="tag">${esc(r.attend)}</span>
+          <span class="tag">🏄 ${esc(r.surf)}</span>
+          <span class="tag">💃 ${esc(r.tango)}</span>
+          ${r.diet?'<span class="tag">🍽 '+esc(r.diet)+'</span>':''}
+        </div>
+      </div>
+    </div>`).join('');
+}
+document.getElementById('regForm').onsubmit=e=>{
+  e.preventDefault();
+  const f=new FormData(e.target),o={};
+  ['name','contact','attend','surf','tango','diet','message'].forEach(k=>o[k]=(f.get(k)||'').trim());
+  o.ts=new Date().toISOString();
+  const list=get(RK);list.push(o);set(RK,list);
+  postToSheet(Object.assign({type:'registration'},o));
+  renderReg();e.target.reset();
+  toast(o.name+'님, 신청 완료!');
+  document.getElementById('attList').scrollIntoView({behavior:'smooth',block:'center'});
+};
+function clearReg(){if(confirm('참석자 명단을 모두 삭제할까요?')){set(RK,[]);renderReg();toast('초기화되었습니다');}}
+function exportCSV(){
+  const list=get(RK);
+  if(!list.length){alert('내려받을 신청자가 없습니다.');return;}
+  const head=['이름','연락처','참석일정','서핑','탱고','식사/요청','메시지','신청시각'];
+  const rows=list.map(r=>[r.name,r.contact,r.attend,r.surf,r.tango,r.diet,r.message,r.ts]);
+  const csv='﻿'+[head,...rows].map(r=>r.map(c=>'"'+String(c||'').replace(/"/g,'""')+'"').join(',')).join('\r\n');
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'}));
+  a.download='양양워크숍_참석자.csv';a.click();
+}
+
+/* ---------- 제안 ---------- */
+function renderProp(){
+  const list=get(PK),el=document.getElementById('propList');
+  document.getElementById('propCount').textContent=list.length+'건';
+  if(!list.length){el.innerHTML='<div class="empty">첫 아이디어를 남겨주세요!</div>';return;}
+  el.innerHTML=list.map((p,i)=>`
+    <div class="prop">
+      <div class="ph"><b>${esc(p.who)}</b>
+        <button class="like" onclick="like(${i})">👍 ${p.likes||0}</button></div>
+      <p>${esc(p.idea)}</p>
+    </div>`).join('');
+}
+document.getElementById('propForm').onsubmit=e=>{
+  e.preventDefault();
+  const f=new FormData(e.target);
+  const np={who:(f.get('who')||'').trim(),idea:(f.get('idea')||'').trim(),likes:0,ts:Date.now()};
+  const list=get(PK);list.unshift(np);
+  set(PK,list);postToSheet({type:'proposal',who:np.who,idea:np.idea});
+  renderProp();e.target.reset();toast('제안이 등록되었습니다!');
+};
+function like(i){const list=get(PK);list[i].likes=(list[i].likes||0)+1;set(PK,list);renderProp();}
+
+function esc(s){return String(s||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+
+renderReg();renderProp();
+</script>
+</body>
+</html>
